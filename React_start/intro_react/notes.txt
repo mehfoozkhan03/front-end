@@ -1,0 +1,7 @@
+intro-react 
+    - public
+        - index.html
+    - src
+        - index.js
+    - package.json (npm init -y) after -> npm i react react-dom react-scripts
+    - package-lock.json

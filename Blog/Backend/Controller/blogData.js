@@ -28,9 +28,9 @@ const getBlog = async (req, res) => {
 
   // const search =
 
-  const blogs = await blogModel.find(search).sort(sort);
+  // const blogs = await blogModel.find(search).sort(sort);
 
-  res.send(blogs);
+  // res.send(blogs);
 };
 
 const createBlog = async (req, res) => {
