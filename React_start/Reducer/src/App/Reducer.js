@@ -32,6 +32,7 @@ export const Reducer = (oldState, action) => {
           el.id === action.payload ? { ...el, isEdit: false } : el,
         ),
       };
+
     case types.Todo_Confirm:
       return {
         ...oldState,
