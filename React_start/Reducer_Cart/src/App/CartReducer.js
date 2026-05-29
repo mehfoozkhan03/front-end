@@ -7,6 +7,7 @@ export const Reducer = (currentState, actions) => {
         ...currentState,
         count: currentState.count + 1,
       };
+
     case types.CART_DECREMENT_STAGE:
       return {
         ...currentState,
