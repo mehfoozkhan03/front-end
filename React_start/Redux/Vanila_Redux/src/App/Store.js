@@ -9,9 +9,9 @@ const initialValue = {
   isError: false,
 };
 
-export const myStore = legacy_createStore(ReducerCount);
+export const myStore = legacy_createStore(ReducerCount, initialValue);
 
-const newReducer = (state = initialValue, { type }) => {
+const newReducer = (state = { count: 10 }, { type }) => {
   switch (type) {
     case types.DOUBLE:
       return {
