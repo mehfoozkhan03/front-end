@@ -60,6 +60,7 @@ const deleteBlog = async (req, res) => {
   }
   res.send('something went wrong...');
 };
+
 const updateOneBlog = () => {};
 const updateManyBlog = () => {};
 

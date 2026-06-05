@@ -8,12 +8,19 @@ const initialValue = {
 
 export const TodoReducer = (currentState = initialValue, { payload, type }) => {
   switch (type) {
-    case action.Todo_Create:
+    case action.Todo_Create: {
+      if (payload === '') return currentState;
+      const todoData = {
+        id: Date.now(),
+        text: payload,
+        isEdits: false,
+        isComplete: false,
+      };
       return {
         ...currentState,
-        todo: [...currentState.todo, payload],
+        todo: [...currentState.todo, todoData],
       };
-
+    }
     case action.Todo_Edits:
       return {
         ...currentState,

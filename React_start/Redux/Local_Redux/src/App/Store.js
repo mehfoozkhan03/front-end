@@ -1,3 +1,11 @@
-import { legacy_createStore } from 'redux';
+import { legacy_createStore, combineReducers } from 'redux';
 
-export const myStore = legacy_createStore();
+import { TodoReducer } from './Todo/Reducer';
+import { AuthReducer } from './Auth/Reducer';
+
+const rootJunction = combineReducers({
+  auth: AuthReducer,
+  todo: TodoReducer,
+});
+
+export const myStore = legacy_createStore(rootJunction);

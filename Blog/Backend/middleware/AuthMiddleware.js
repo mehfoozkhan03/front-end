@@ -8,6 +8,7 @@ export const auth = (req, res, next) => {
       res.send(`error in token verification ${err}`);
     }
 
+    console.log(`🚀 ~ decoded:`, decoded);
     if (decoded) {
       req.userCode = decoded;
       next();

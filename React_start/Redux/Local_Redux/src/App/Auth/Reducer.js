@@ -12,10 +12,14 @@ export const AuthReducer = (currentState = initialValue, { payload, type }) => {
       return { ...currentState, isLoading: true };
 
     case action.Auth_Successfull:
-      return {};
+      return {
+        ...currentState,
+        isLoading: false,
+        user: [...currentState.user, payload],
+      };
 
     case action.Auth_Failure:
-      return {};
+      return { ...currentState, isError: true };
 
     default:
       return currentState;
