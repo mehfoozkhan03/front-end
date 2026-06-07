@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      #todo {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .d-none {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <div
@@ -17,9 +27,8 @@
     >
       <input type="text" id="text" />
       <button onclick="addTodo()">add</button>
-
-      <div id="todo"></div>
     </div>
+    <div id="todo"></div>
   </body>
   <script src="./index.js"></script>
 </html>
