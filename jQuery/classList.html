@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <style>
+      .active {
+        background-color: tomato;
+        font: 700;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: x-large;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>mehfooz</h4>
+    <button id="add">add</button>
+    <button id="remove">remove</button>
+    <button id="toggle">toggle</button>
+    <button id="check">check</button>
+  </body>
+  <script>
+    $(function () {
+      $('#add').click(function () {
+        $('h4').addClass('active');
+      });
+
+      $('#remove').click(function () {
+        $('h4').removeClass('active');
+      });
+
+      $('#toggle').click(function () {
+        $('h4').toggleClass('active');
+      });
+
+      $('#check').click(function () {
+        console.log($('h4').hasClass('active'));
+      });
+    });
+  </script>
+</html>
