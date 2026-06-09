@@ -8,4 +8,7 @@ const rootJunction = combineReducers({
   todo: TodoReducer,
 });
 
-export const myStore = legacy_createStore(rootJunction);
+export const myStore = legacy_createStore(
+  rootJunction,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);

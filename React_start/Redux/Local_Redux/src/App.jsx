@@ -1,10 +1,11 @@
-import React from 'react';
-import { Todo } from './Pages/Todo';
+import { Navbar } from './Components/Navbar';
+import { AllRoutes } from './Routes/AllRoutes';
 
 export const App = () => {
   return (
     <>
-      <Todo />
+      <Navbar />
+      <AllRoutes />
     </>
   );
 };

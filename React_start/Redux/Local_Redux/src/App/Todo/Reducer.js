@@ -28,6 +28,7 @@ export const TodoReducer = (currentState = initialValue, { payload, type }) => {
           el.id === payload.id ? { ...el, isEdit: true } : el,
         ),
       };
+
     case action.Todo_Cancel:
       return {
         ...currentState,
