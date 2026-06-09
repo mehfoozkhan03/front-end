@@ -1,22 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { cookiesFunc } from '../../Utils';
+import { setCookiesFunc, getCookiesFunc } from '../../Utils/Cookies';
 
 const LoginSlice = createSlice({
   name: 'login',
   initialState: {
-    token: cookiesFunc() || '',
-    isAuth: cookiesFunc() ? true : false,
+    token: getCookiesFunc() ?? '',
+    isAuth: getCookiesFunc() ? true : false,
     isLoading: false,
     isError: false,
   },
   reducers: {
-    LoginData: (state, action) => {},
+    LoginData: (state, action) => {
+      if (action.payload && Object.keys(action.payload).includes('token')) {
+        return {
+          ...state,
+          token: setCookiesFunc(action.payload?.token),
+          isAuth: true,
+        };
+      }
+    },
   },
 });
 
 export const LoginSliceReducer = LoginSlice.reducer;
 export const { LoginData } = LoginSlice.actions;
-
-
-(30*7*)

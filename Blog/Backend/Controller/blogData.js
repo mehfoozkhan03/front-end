@@ -33,6 +33,15 @@ const getBlog = async (req, res) => {
   // res.send(blogs);
 };
 
+const singleBlog = async (req, res) => {
+  const blogId = req.params;
+  if (blogId.id) {
+    const data = await blogModel.findOne({ _id: blogId.id });
+    res.send(data);
+  }
+  res.send('id is not present');
+};
+
 const createBlog = async (req, res) => {
   if (req.body) {
     const authorID = await userModel.findOne({ _id: req.userCode.userID });
@@ -64,4 +73,11 @@ const deleteBlog = async (req, res) => {
 const updateOneBlog = () => {};
 const updateManyBlog = () => {};
 
-export { createBlog, deleteBlog, updateManyBlog, updateOneBlog, getBlog };
+export {
+  singleBlog,
+  createBlog,
+  deleteBlog,
+  updateManyBlog,
+  updateOneBlog,
+  getBlog,
+};

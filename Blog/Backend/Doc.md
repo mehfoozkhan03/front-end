@@ -1,19 +1,60 @@
-# Blog
+# Backend Documentation
 
-## Blog
+> 🔗 Base Url : http://localhost:8080
 
-### Blog
+- ## 👤 User Management Documentation
+  1. ### Get All Users Data
+     - method : **GET**
+     - EndPoint : **/user**
 
-#### Blog
+  2. ### For User Signup
+     - method: **POST**
+     - EndPoint : **/user/signup**
 
-##### Blog
+     - #### Required Fields For Signup
 
-###### Blog
+       ```json
+       {
+         "name": "String",
+         "email": "String",
+         "password": "String"
+       }
+       ```
 
-**_doc_**
+  3. ### For User Login
+     - method: **POST**
+     - EndPoint : **/user/login**
 
-> mehfooz
+     - #### Required Fields For Login
+       ```json
+       {
+         "name": "String",
+         "email": "String",
+         "password": "String"
+       }
+       ```
 
-```js
-console.log('hello');
-```
+- ## Blog Management Documentation
+  1. ### Get All Blogs Data
+     - method : **GET**
+     - EndPoint : **/blog**
+
+  2. ### 📥Create User Blog
+     - method : **POST**
+     - EndPoint : **/createBlog**
+
+  3. ### ❌ Delete User Blog
+     - method : **DELETE**
+     - EndPoint : **/deleteBlog/:\_id**
+
+  4. ### ✏️Update One Blog
+     - method : **PATCH**
+     - EndPoint : **/updateOneBlog/:id**
+
+  5. ### Update Many Blog
+     - method : **PUT**
+     - EndPoint : **/updateManyBlog**
+
+  6. ### 🔍Get Blog (Search)
+     - method : **POST**
+     - EndPoint : **/getBlog**

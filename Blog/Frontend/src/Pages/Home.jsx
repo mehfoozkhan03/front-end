@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import { BlogData } from '../App/Slicer/BlogSlice';
 import { blogApi } from './../Utils/Api';
@@ -28,12 +29,16 @@ export const Home = () => {
         data &&
         data?.map((el) => {
           return (
-            <div key={el._id} style={{ border: '2px solid red' }}>
+            <NavLink
+              to={`/blog/${el._id}`}
+              key={el._id}
+              style={{ border: '2px solid red' }}
+            >
               <h1>{el.title}</h1>
               <h3>{el.category}</h3>
               <h4>{el.discription}</h4>
               <h5>{el.rate}</h5>
-            </div>
+            </NavLink>
           );
         })
       )}
