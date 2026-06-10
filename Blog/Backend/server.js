@@ -11,7 +11,7 @@ import { blogModel } from './model/Blog.model.js';
 
 const server = express();
 
-server.use(express.json(), cors());
+server.use(express.text(), express.json(), cors());
 
 server.get('/', async (req, res) => {
   const blogs = await blogModel.find().populate('author');
@@ -21,10 +21,13 @@ server.get('/', async (req, res) => {
 // routes
 server.use('/user', userRoutes);
 
+// auth-check
 server.use(auth);
 
+// blog routes
 server.use('/blog', blogRoutes);
 
+// server running
 server.listen(process.env.Port, async () => {
   try {
     await Connection();

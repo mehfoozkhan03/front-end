@@ -13,9 +13,10 @@ const LoginSlice = createSlice({
   reducers: {
     LoginData: (state, action) => {
       if (action.payload && Object.keys(action.payload).includes('token')) {
+        setCookiesFunc(action.payload?.token);
         return {
           ...state,
-          token: setCookiesFunc(action.payload?.token),
+          token: getCookiesFunc(),
           isAuth: true,
         };
       }

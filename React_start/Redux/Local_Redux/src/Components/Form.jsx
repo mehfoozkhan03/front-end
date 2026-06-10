@@ -1,8 +1,7 @@
 import React from 'react';
-
-import { ApiCall } from '../Utils/Api';
 import { useDispatch } from 'react-redux';
-import { auth_successfull } from '../App/Auth/ActionType';
+
+import { loginForm } from '../App/Auth/ActionType';
 
 export const Form = ({ props }) => {
   const dispatch = useDispatch();
@@ -26,12 +25,8 @@ export const Form = ({ props }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await ApiCall.post('/login', form);
-      dispatch(auth_successfull(res.data.token));
-    } catch (err) {
-      console.log(err);
-    }
+    // loginForm(dispatch, form);
+    dispatch(loginForm(form));
   };
 
   return (
