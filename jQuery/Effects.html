@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      * {
+        cursor: pointer;
+      }
+
+      #box {
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <p style="border: 2px solid red">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore ipsum
+        voluptas fugit quod ab iure officiis dolorem cupiditate, eius molestiae
+        incidunt impedit accusamus, voluptatibus sit atque voluptate
+        exercitationem reiciendis a alias corporis! Veritatis modi non quisquam
+        obcaecati consectetur? Sit, nulla.
+      </p>
+    </div>
+  </body>
+  <script>
+    // fadeIn and fadeOut
+
+    /*   $(function () {
+      $('#box').mouseenter(function () {
+        $('p').fadeOut(1000);
+      });
+      $('#box').mouseleave(function () {
+        $('p').fadeIn(1000);
+      });
+    }); */
+
+    // fadeTo
+
+    /*  $(function () {
+      $('#box').mouseenter(function () {
+        $('p').fadeTo(1000, 0);
+      });
+      $('#box').mouseleave(function () {
+        $('p').fadeTo(1000, 1);
+      });
+    }); */
+
+    $(function () {
+      $('#box').mouseenter(function () {
+        $('p').slideUp(1000);
+      });
+      $('#box').mouseleave(function () {
+        $('p').slideDown(1000);
+      });
+    });
+  </script>
+</html>

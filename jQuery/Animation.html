@@ -10,29 +10,28 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <style>
-      .animation {
-        cursor:;
-      }
-    </style>
   </head>
   <body>
-    <p style="border: 2px solid red">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, eum!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, eum!
-    </p>
+    <div
+      id="box"
+      style="
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background: tomato;
+        left: 0;
+      "
+    ></div>
+
+    <button id="btn" style="position: absolute; left: 100px">click</button>
   </body>
   <script>
     $(function () {
-      $('p').mouseleave(function () {
-        $('p').fadeIn();
-      });
+      //   $('#box').animate({ left: '500px' }, 2000, 'linear');
 
-      $('p').mouseenter(function () {
-        $('p').fadeOut();
+      $('#btn').click(function () {
+        $('#box').slideUp().fadeIn(1000).toggle(2000);
       });
-
-      $('p').css('cursor', 'pointer'0);
     });
   </script>
 </html>
