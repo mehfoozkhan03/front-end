@@ -3,36 +3,36 @@
 > 🔗 Base Url : http://localhost:8080
 
 - ## 👤 User Management Documentation
-  1. ### Get All Users Data
-     - method : **GET**
-     - EndPoint : **/user**
+  1.  ### Get All Users Data
+      - method : **GET**
+      - EndPoint : **/user**
 
-  2. ### For User Signup
-     - method: **POST**
-     - EndPoint : **/user/signup**
+  2.  ### For User Signup
+      - method: **POST**
+      - EndPoint : **/user/signup**
 
-     - #### Required Fields For Signup
+      - #### Required Fields For Signup
 
-       ```json
-       {
-         "name": "String",
-         "email": "String",
-         "password": "String"
-       }
-       ```
+        ```json
+        {
+          "name": "String",
+          "email": "String",
+          "password": "String"
+        }
+        ```
 
-  3. ### For User Login
-     - method: **POST**
-     - EndPoint : **/user/login**
+  3.  ### For User Login
+      - method: **POST**
+      - EndPoint : **/user/login**
 
-     - #### Required Fields For Login
-       ```json
-       {
-         "name": "String",
-         "email": "String",
-         "password": "String"
-       }
-       ```
+      - #### Required Fields For Login
+        ```json
+        {
+          "name": "String",
+          "email": "String",
+          "password": "String"
+        }
+        ```
 
 - ## Blog Management Documentation
   1. ### Get All Blogs Data
@@ -42,6 +42,17 @@
   2. ### 📥Create User Blog
      - method : **POST**
      - EndPoint : **/createBlog**
+     - #### Required Fields For Blog
+
+       ```json
+       {
+         "title": "String",
+         "discription": "String",
+         "category": "String",
+         "content": "String",
+         "rating": "Number"
+       }
+       ```
 
   3. ### ❌ Delete User Blog
      - method : **DELETE**
