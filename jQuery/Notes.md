@@ -434,6 +434,10 @@ $.get('https://jsonplaceholder.typicode.com/users', function (data) {
 });
 ```
 
+```md
+$.get(url, data, successCallback, dataType);
+```
+
 POST Request
 
 ```js
@@ -446,6 +450,10 @@ $.post(
     console.log(data);
   },
 );
+```
+
+```md
+$.post(url, data, successCallback, dataType);
 ```
 
 AJAX Method
@@ -461,6 +469,19 @@ $.ajax({
     console.log(err);
   },
 });
+```
+
+```md
+$.ajax({
+url // Restaurant address
+method // Order type
+data // Food items
+headers // Special instructions
+beforeSend // "Order placed"
+success // "Food delivered"
+error // "Restaurant closed"
+complete // "Order process ended"
+})
 ```
 
 **_Phase 18:_** `Event Delegation (Industry Favorite)`
@@ -562,3 +583,7 @@ Examples:
 - Select2
 - jQuery UI
 - Owl Carousel
+
+```
+
+```
