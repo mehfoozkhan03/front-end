@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <style>
+      #info > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Todo App JQuery</h1>
+      <div id="inputs">
+        <input id="inputText" type="text" />
+        <button class="addBtn">Add</button>
+      </div>
+      <div id="info"></div>
+    </div>
+  </body>
+  <script>
+    const DB = JSON.parse(localStorage.getItem('todo')) || [];
+
+    let currentContainer = null;
+
+    $(function () {
+      if (DB.length <= 0) {
+        $('#info').append(`<h1 class="alert">No Data available⛔</h1>`);
+      }
+
+      DB.forEach((ele) => {
+        $('#info').append(`<div>
+                <input type="checkbox"/>
+                <h3>${ele}</h3>
+                <button class="edit">edit</button>
+                <button class="del">delete</button>
+                </div>`);
+      });
+
+      // add
+      $('.addBtn').click(function () {
+        $('.alert').parent().find('h1').remove();
+
+        let inputValue = $('#inputText').val();
+
+        if (inputValue.trim() === '') return;
+
+        if ($(this).text() === 'update') {
+          currentContainer.find('h3').text(inputValue);
+
+          $('.addBtn').text('add');
+          $('#inputText').text('');
+          currentContainer = null;
+          return;
+        }
+
+        $('#info').append(`<div>
+        <input type="checkbox"/>
+        <h3>${inputValue}</h3>
+        <button class="edit">edit</button>
+        <button class="del">delete</button>
+        </div>`);
+
+        DB.push(inputValue);
+
+        localStorage.setItem('todo', JSON.stringify(DB));
+
+        $('#inputText').val('');
+      });
+      // delete
+
+      $(document).on('click', '.del', function () {
+        let value = $(this).parent().remove();
+        console.log(`🚀 ~ value:`, value);
+      });
+
+      // edit
+
+      $(document).on('click', '.edit', function () {
+        currentContainer = $(this).parent();
+        const text = currentContainer.find('h3').text();
+        $('#inputText').val(text);
+        $('.addBtn').text('update');
+      });
+    });
+  </script>
+</html>
