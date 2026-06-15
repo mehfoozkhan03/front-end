@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+
+      .task {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Todo App</h1>
+
+    <input id="task" />
+    <button id="add">Add</button>
+
+    <div id="list"></div>
+
+    <script>
+      let currentTask = null;
+
+      $('#add').click(function () {
+        let value = $('#task').val();
+
+        if (!value) return;
+
+        // Update Existing Todo
+        if ($(this).text() === 'Update') {
+          currentTask.find('.todoText').text(value);
+
+          $('#task').val('');
+          $('#add').text('Add');
+          currentTask = null;
+          return;
+        }
+
+        // Add New Todo
+        $('#list').append(`
+          <div class="task">
+            <span class="todoText">${value}</span>
+            <button class="edit">Edit</button>
+            <button class="del">Delete</button>
+          </div>
+        `);
+
+        $('#task').val('');
+      });
+
+      // Delete
+      $(document).on('click', '.del', function () {
+        $(this).parent().remove();
+      });
+
+      // Edit
+      $(document).on('click', '.edit', function () {
+        currentTask = $(this).parent();
+
+        let text = currentTask.find('.todoText').text();
+
+        $('#task').val(text);
+        $('#add').text('Update');
+      });
+    </script>
+  </body>
+</html>
