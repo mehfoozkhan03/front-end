@@ -1,4 +1,5 @@
 import React from 'react';
+import { Counter } from './Components/Counter';
 
 export const App = () => {
   // state-less
@@ -17,6 +18,7 @@ export const App = () => {
   //state-full || COMPONENTS api
 
   const [count, setCount] = React.useState(0);
+  const [name, setName] = React.useState('');
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -26,18 +28,15 @@ export const App = () => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        flexDirection: 'column',
-      }}
-    >
-      <h1>Counter {count}</h1>
-      <div>
-        <button onClick={handleIncrement}>increment</button>{' '}
-        <button onClick={handleDecrement}>decrement</button>
-      </div>
-    </div>
+    <>
+      <h1>name in parent {name}</h1>
+      <hr />
+      <Counter props={{ count, handleIncrement, handleDecrement, setName }} />
+    </>
+    // <Counter
+    //   count={count}
+    //   handleIncrement={handleIncrement}
+    //   handleDecrement={handleDecrement}
+    // />
   );
 };
