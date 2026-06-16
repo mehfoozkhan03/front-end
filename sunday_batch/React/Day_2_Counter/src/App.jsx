@@ -29,7 +29,9 @@ export const App = () => {
 
   return (
     <>
-      <h1>name in parent {name}</h1>
+      <span>Parent</span>
+      <h1>name {name}</h1>
+      <h1>Counter {count}</h1>
       <hr />
       <Counter props={{ count, handleIncrement, handleDecrement, setName }} />
     </>

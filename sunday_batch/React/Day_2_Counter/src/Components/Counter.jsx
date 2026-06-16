@@ -1,8 +1,6 @@
-import React from 'react';
-
 export const Counter = ({ props }) => {
   console.log(`🚀 ~ props:`, props);
-  const { count, handleDecrement, handleIncrement, setName } = props;
+  const { handleDecrement, handleIncrement, setName } = props;
 
   const handleInput = (e) => {
     const { value } = e.target;
@@ -17,8 +15,9 @@ export const Counter = ({ props }) => {
         flexDirection: 'column',
       }}
     >
+      <span>child</span>
       <input type="text" onChange={handleInput} />
-      <h1>Counter {count}</h1>
+
       <div>
         <button onClick={handleIncrement}>increment</button>
         <button onClick={handleDecrement}>decrement</button>
