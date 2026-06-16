@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <h1 class="display_name"></h1>
+    <h1 class="xyz"></h1>
+
+    <input id="text" type="text" placeholder="enter the world...." />
+    <button id="btn">click</button>
+  </body>
+  <script>
+    let name = 'mehfooz';
+    let name_1 = 'khan';
+
+    // document.querySelector('h1').innerText = name;
+
+    // select then action perform
+
+    // $("select").action(handlerFucntion)
+
+    /* 
+    
+    $() => jquery function
+    */
+
+    $('h1').text(name_1);
+    $('.display_name').text(name);
+    $('.xyz').html('<mark>hello</mark>');
+
+    $('#text').change(function () {
+      let text = $(this).val();
+      console.log(`🚀 ~ text:`, text);
+    });
+
+    $('#btn').click(function () {
+      console.log('btn');
+      let text = $('#text').val();
+      console.log(`🚀 ~ text:`, text);
+    });
+  </script>
+</html>
