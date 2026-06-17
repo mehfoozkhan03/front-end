@@ -583,7 +583,3 @@ Examples:
 - Select2
 - jQuery UI
 - Owl Carousel
-
-```
-
-```
