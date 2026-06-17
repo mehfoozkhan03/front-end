@@ -1,4 +1,4 @@
-import React from 'react';
+import { useMemo } from 'react';
 
 const expensiveFunction = (val) => {
   const start_time = Date.now();
@@ -8,15 +8,20 @@ const expensiveFunction = (val) => {
   return true;
 };
 
-const TodoList = ({ id, text, isEdits, isCompleted, handleDelete }) => {
-  expensiveFunction(200);
-
+const TodoList = ({ id, text, isEdits, isCompleted, handleDelete, text1 }) => {
+  useMemo(() => expensiveFunction(200), []);
   return (
     <div style={{ padding: '10px 0' }}>
-      <h1>
-        {id} - {text} - edit:- {isEdits ? 'true' : 'false'} - completed:-{' '}
-        {isCompleted ? 'true' : 'false'}
-      </h1>
+      <div>
+        <h1>
+          {id} - {text} - {text1}
+        </h1>
+        <h2>
+          edit:- {isEdits ? 'true' : 'false'} completed:-{' '}
+          {isCompleted ? 'true' : 'false'}
+        </h2>
+      </div>
+
       {/* <button onClick={}>edit</button> */}
       <button onClick={() => handleDelete(id)}>delete</button>
     </div>
