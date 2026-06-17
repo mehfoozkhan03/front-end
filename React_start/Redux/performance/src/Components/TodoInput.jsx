@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { TodoLists } from './TodoList';
 
 export const TodoInput = () => {
@@ -29,7 +29,7 @@ export const TodoInput = () => {
     setText('');
   };
 
-  const handleEdit = () => {};
+  // const handleEdit = () => {};
   const handleDelete = (id) => {
     const deleteItems = todo.filter((el) => el.id !== id);
     setTodo(deleteItems);

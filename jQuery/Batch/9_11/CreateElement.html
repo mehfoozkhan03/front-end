@@ -16,13 +16,22 @@
       <h2>khan</h2>
       <h3>hello</h3>
       <h4></h4>
+      <button id="removeBtn">remove</button>
+      <button id="emptyBtn">empty</button>
     </div>
   </body>
   <script>
     $(function () {
       let name = 'mehfooz';
-      $('h3').before(`<h1>${name}</h1>`);
+      //   $('h3').before(`<h1>${name}</h1>`);
       $('h4').append(name);
+
+      $('#removeBtn').click(function () {
+        $('h4').remove();
+      });
+      $('#emptyBtn').click(function () {
+        $('h4').empty();
+      });
     });
   </script>
 </html>
