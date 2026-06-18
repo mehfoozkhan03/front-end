@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    AJAX get
+  </body>
+  <script>
+    $(function () {
+      $.get('https://jsonplaceholder.typicode.com/users')
+        .done(function (data) {
+          console.log(data);
+        })
+        .fail(function (err) {
+          console.log(err);
+        })
+        .always(function () {
+          console.log('done');
+        });
+      /*
+      $.get('https://jsonplaceholder.typicode.com/users', function (data) {
+        console.log(data);
+      });
+
+
+    $.post(
+      'https://jsonplaceholder.typicode.com/posts',
+      {
+        title: 'Hello',
+      },
+      function (data) {
+        console.log(data);
+      },
+    ); */
+      /* $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/users',
+      method: 'GET',
+      success: function (data) {
+        console.log('successful', data);
+      },
+      error: function (err) {
+        console.log('error', err);
+      },
+      complete: function () {
+        console.log('done');
+      },
+    }); */
+    });
+  </script>
+</html>
