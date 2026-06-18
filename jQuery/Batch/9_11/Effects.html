@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      body #box {
+        width: 200px;
+        height: 200px;
+        background: tomato;
+        padding: 1rem;
+        margin: 16% auto;
+      }
+      #main {
+        background: transparent !important;
+        border: 2px solid red;
+        width: 400px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <p id="box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
+        cupiditate adipisci similique odio ullam ducimus molestiae eligendi
+        consequuntur reprehenderit saepe! Soluta nemo rem eum sunt, doloribus
+        sequi quasi in placeat.
+      </p>
+    </div>
+    <button id="toggle">click</button>
+  </body>
+  <script>
+    $(function () {
+      // hide && show && toggle
+      /*  $('#box').mouseenter(function () {
+        $(this).hide();
+      });
+
+      $('#box').mouseleave(function () {
+        $(this).show();
+      });
+      $('#toggle').click(function () {
+        $('#box').toggle(1000);
+      }); */
+      // fade effects
+      /*   $('#main').mouseenter(function () {
+        $('#box').fadeOut(1000);
+      });
+
+      $('#main').mouseleave(function () {
+        $('#box').fadeIn(1000);
+      });
+
+      $('#toggle').click(function () {
+        $('#box').fadeToggle(1000);
+      });
+    }); */
+
+      // side Effects
+      $('#main').mouseenter(function () {
+        $('#box').slideUp(1000);
+      });
+
+      $('#main').mouseleave(function () {
+        $('#box').slideDown(1000);
+      });
+
+      $('#toggle').click(function () {
+        $('#box').slideToggle(1000);
+      });
+    });
+  </script>
+</html>
