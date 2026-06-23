@@ -20,7 +20,10 @@ export const Counter = () => {
 
     return <>
         <h1>Counter {value}</h1>
+        <input type="text" />
         <button onClick={handleAdd}>increment</button>
         <button onClick={handleSub}>decrement</button>
+        <button onClick={handleSub}>increment by Value</button>
+        <button onClick={handleSub}>decrement by value</button>
     </>
 }
