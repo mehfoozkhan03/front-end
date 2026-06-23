@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <form>
+        <label for="email">email</label>
+        <input id="email" type="text">
+        <label for="password">password</label>
+        <input id="password" type="text">
+        <button type="submit">submit</button>
+    </form>
+
+
+</body>
+<script>
+    const API = `https://front-end-g9ur.onrender.com/user`;
+
+
+    $('form').submit(function (e) {
+        e.preventDefault();
+        const email = $("#email").val();
+        const password = $("#password").val();
+
+        const userData = {
+            email: email,
+            password: password
+        }
+
+        $.ajax({
+            url: API,
+            method: 'POST',
+            data: JSON.stringify(userData),
+            contentType:'application/json',
+            success: function (data) {
+                console.log('successful', data);
+            },
+            error: function (err) {
+                console.log('error', err);
+            },
+            complete: function () {
+                console.log('done');
+            },
+        });
+
+    })
+
+    $.get(API).done(res => console.log(res)).fail(err => console.log(err))
+
+
+</script>
+
+</html>
