@@ -6,20 +6,29 @@ const MusicSlicer = createSlice({
     isLoading: false,
     isError: false,
     musicRecord: [],
+    genreFilter: {},
   },
   reducers: {
     musicRequest: (state) => {
       state.isLoading = true;
     },
     musicSuccess: (state, action) => {
-        console.log(action)
-        // return { ...state, isLoading: false, musicRecord: action.payload };
+      console.log(action);
 
-        state.isLoading=false;
-        state.musicRecord=action.payload
+      return {
+        ...state,
+        // propblem is here 
+        genreFilter:musicRecord?.reduce((acc, curr) => {
+            let genre = Object.values(curr.genre).join("");
+            acc[genre] = (acc[genre] || 0) + 1;
+            return acc;
+          }, {}),
+        isLoading: false,
+        musicRecord: action.payload,
+      };
     },
     musicFailure: (state, action) => {
-    //   state = { ...state, isLoading: false, musicRecord: [], isError: true };
+      //   state = { ...state, isLoading: false, musicRecord: [], isError: true };
     },
   },
 });
