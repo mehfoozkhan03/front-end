@@ -8,30 +8,37 @@ const MusicSlicer = createSlice({
     musicRecord: [],
     genreFilter: {},
   },
+
   reducers: {
     musicRequest: (state) => {
       state.isLoading = true;
+      state.isError = false;
     },
-    musicSuccess: (state, action) => {
-      console.log(action);
 
-      return {
-        ...state,
-        // propblem is here 
-        genreFilter:musicRecord?.reduce((acc, curr) => {
-            let genre = Object.values(curr.genre).join("");
-            acc[genre] = (acc[genre] || 0) + 1;
-            return acc;
-          }, {}),
-        isLoading: false,
-        musicRecord: action.payload,
-      };
+    musicSuccess: (state, action) => {
+      state.musicRecord = action.payload;
+      state.isLoading = false;
+      state.isError = false;
     },
-    musicFailure: (state, action) => {
-      //   state = { ...state, isLoading: false, musicRecord: [], isError: true };
+
+    setGenreFilter: (state, action) => {
+      const filter = action.payload.reduce((acc, curr) => {
+        const genre = curr.genre;
+        acc[genre] = (acc[genre] || 0) + 1;
+        return acc;
+      }, {});
+      state.genreFilter = filter;
+    },
+
+    musicFailure: (state) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.musicRecord = [];
     },
   },
 });
 
-export const { musicRequest, musicSuccess, musicFailure } = MusicSlicer.actions;
+export const { musicRequest, musicSuccess, setGenreFilter, musicFailure } =
+  MusicSlicer.actions;
+
 export const musicSlicer = MusicSlicer.reducer;

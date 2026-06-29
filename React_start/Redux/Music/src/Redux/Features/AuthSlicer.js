@@ -1,30 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { loadData } from "../../utils/localStorage";
+
 const AuthSlicer = createSlice({
   name: "auth",
   initialState: {
     isLoading: false,
     isError: false,
-    isAuth: false,
-    token: "",
+    isAuth: loadData() ? true : false,
+    token: loadData() ?? "",
   },
   reducers: {
     authRequest: (state) => {
-      state = { ...state, isLoading: true };
+      state.isLoading = true;
+      state.isError = false;
     },
     authSuccess: (state, action) => {
-      state = {
-        ...state,
-        isLoading: false,
-        isAuth: true,
-        token: action.payload,
-      };
+      state.isLoading = false;
+      state.isAuth = true;
+      state.token = action.payload;
+      state.isError = false;
     },
     authFail: (state) => {
-      state = { ...state, isError: true };
+      state.isLoading = false;
+      state.isError = true;
     },
   },
 });
 
-const { authSuccess, authRequest, authFail } = AuthSlicer.actions;
-export const authSlicer=AuthSlicer.reducer
+export const { authSuccess, authRequest, authFail } = AuthSlicer.actions;
+export const authSlicer = AuthSlicer.reducer;
