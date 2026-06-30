@@ -1,8 +1,10 @@
-import React from "react";
+import { useDispatch } from "react-redux";
 
 import { NavLink } from "react-router-dom";
+import * as type from "../Redux/Features/AuthSlicer";
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
   const Data = [
     {
       path: "/",
@@ -30,6 +32,14 @@ export const Navbar = () => {
             </NavLink>
           );
         })}
+
+      <button
+        onClick={() => {
+          dispatch(type.logout());
+        }}
+      >
+        Logout
+      </button>
     </div>
   );
 };

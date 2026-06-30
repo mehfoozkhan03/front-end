@@ -1,13 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
-import * as type from "../Redux/Features/MusicSlicer";
-import axios from "axios";
-
 const MusicFilter = () => {
-  const dispatch = useDispatch();
   const { genreFilter } = useSelector((store) => store.music);
 
   console.log("genreFilter", genreFilter);
@@ -38,10 +34,6 @@ const MusicFilter = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3001/albums").then((res) => {
-      dispatch(type.setGenreFilter(res.data));
-    });
-
     const Params = {};
 
     filterValue && (Params.genre = filterValue);
@@ -49,7 +41,7 @@ const MusicFilter = () => {
     orderBy && (Params.order = orderBy);
 
     setSearchParams(Params);
-  }, [filterValue, orderBy, searchParams]);
+  }, [filterValue, orderBy]);
 
   return (
     <div>
