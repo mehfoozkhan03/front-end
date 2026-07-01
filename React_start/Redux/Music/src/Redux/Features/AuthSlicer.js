@@ -1,10 +1,12 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createAction, createSlice } from "@reduxjs/toolkit";
 
 import { getData, saveData, removeData } from "../../util/localStorage";
 import { authApi } from "../../util/Api";
 
+const authlogin = createAction("auth/login");
+
 export const login = createAsyncThunk(
-  "auth/login",
+  authlogin,
   async (payload, { rejectWithValue }) => {
     try {
       const res = await authApi.post("/api/login", payload);

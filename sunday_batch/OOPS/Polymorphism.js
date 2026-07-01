@@ -51,19 +51,19 @@ console.log(`🚀 ~ data_3:`, data_3.run()); */
 
 const printPDF = {
   print: () => {
-    console.log('Printing PDF');
+    console.log("Printing PDF");
   },
 };
 
 const printTEXT = {
   print: () => {
-    console.log('Printing TEXT');
+    console.log("Printing TEXT");
   },
 };
 
 const printTag = {
   print: () => {
-    console.log('Printing Tag');
+    console.log("Printing Tag");
   },
 };
 
