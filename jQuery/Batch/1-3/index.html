@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    <button data-num="1" id="btn_1">btn_1</button>
+    <button data-num="2" id="btn_2">btn_2</button>
+    <button data-num="3" id="btn_3">btn_3</button>
+  </body>
+  <script>
+    $(function () {
+      // event delegation
+      /* $('button').click(function () {
+        console.log('clicked', $(this).data('num'));
+      }); */
+
+      $(document).on('click', 'button', function () {
+        console.log('clicked', $(this).data('num'));
+      });
+
+      $('body').append(`<button data-num="4" id="btn_4">btn_4</button>`);
+    });
+  </script>
+</html>

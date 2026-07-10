@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+    <style>
+      .child_data {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>todo</h2>
+    <div>
+      <input id="inputVal" type="text" />
+      <button id="add_btn">add</button>
+    </div>
+    <div id="list"></div>
+  </body>
+  <script>
+    let dataBase = JSON.parse(localStorage.getItem('todo')) || [];
+    let currentElements;
+    $(function () {
+      const Render_UI = () => {
+        if (dataBase.length <= 0) {
+          $('#list').append(`<h1> no data⛔</h1>`);
+        } else {
+          $('#list').empty();
+          dataBase?.map((el) => {
+            $('#list').append(
+              `<div class="child_data" data-name="${el.text}">
+                        <input type="checkbox"/>
+                        <h1>${el.text}</h1>
+                        <button id="edit_btn">edit</button>
+                        <button id="del_btn">delete</button>
+                        </div>`,
+            );
+          });
+        }
+      };
+
+      // create todo
+      $('#add_btn').click(function () {
+        if ($('#inputVal').val().trim() === '') return;
+
+        if ($('#add_btn').text() === 'update') {
+          currentElements.find('h1').text($('#inputVal').val());
+          $('#inputVal').val('');
+          $('#add_btn').text('add');
+          return;
+        }
+
+        const todo = {
+          // id:Date.now(),
+          text: $('#inputVal').val(),
+          isEdits: false,
+          isCompleted: false,
+        };
+
+        dataBase.push(todo);
+        localStorage.setItem('todo', JSON.stringify(dataBase));
+        Render_UI();
+        $('#inputVal').val('');
+      });
+
+      // delete
+
+      $(document).on('click', '#del_btn', function () {
+        let id = $(this).parent();
+        dataBase = dataBase.filter(
+          (el) => el.text !== id.children()[1].textContent,
+        );
+        localStorage.setItem('todo', JSON.stringify(dataBase));
+        id.remove();
+        Render_UI();
+      });
+
+      // edit
+
+      $(document).on('click', '#edit_btn', function () {
+        currentElements = $(this).parent();
+
+        const currentText = currentElements.find('h1').text();
+
+        $('#inputVal').val(currentText);
+        $('#add_btn').text('update');
+      });
+
+      Render_UI();
+    });
+  </script>
+</html>
