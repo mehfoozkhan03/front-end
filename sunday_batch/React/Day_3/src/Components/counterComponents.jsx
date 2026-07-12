@@ -5,8 +5,10 @@ export const CounterComponents = () => {
   const { handleIncrement, handleDecrement, setName } =
     React.useContext(CounterContexts);
 
-  const handleInput = (e) => {
-    setName(e.target.value);
+  const nameValue = React.useRef(null);
+
+  const handleInput = () => {
+    setName(nameValue.current.value);
   };
 
   return (
@@ -18,7 +20,9 @@ export const CounterComponents = () => {
       }}
     >
       <span>child</span>
-      <input type="text" onChange={handleInput} />
+      <input type="text" ref={nameValue} />
+      <button onClick={handleInput}>name</button>
+      {/* <input type="text" onChange={handleInput} /> */}
 
       <div>
         <button onClick={handleIncrement}>increment</button>
