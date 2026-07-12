@@ -3,11 +3,11 @@ import {
   combineReducers,
   applyMiddleware,
   compose,
-} from 'redux';
-import { thunk } from 'redux-thunk';
+} from "redux";
+import { thunk } from "redux-thunk";
 
-import { TodoReducer } from './Todo/Reducer';
-import { AuthReducer } from './Auth/Reducer';
+import { TodoReducer } from "./Todo/Reducer";
+import { AuthReducer } from "./Auth/Reducer";
 
 const rootJunction = combineReducers({
   auth: AuthReducer,
@@ -23,10 +23,10 @@ const mul = (x) => x * 2;
 
 let result = compose(add, mul);
 
-console.log('result', result(5));
+console.log("result", result(5));
 
 const composeEnhancers =
-  typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
         // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
       })
@@ -36,5 +36,5 @@ const enhancer = composeEnhancers(
   applyMiddleware(thunk),
   // other store enhancers if any
 );
-
+1;
 export const myStore = legacy_createStore(rootJunction, enhancer);
