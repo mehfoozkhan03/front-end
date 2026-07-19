@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <>
       <span>Parent</span>
-      <h1>name {name}</h1>
+      <h1>name {name || 'default'}</h1>
       <h1>Counter {count}</h1>
       <hr />
       <CounterComponents />

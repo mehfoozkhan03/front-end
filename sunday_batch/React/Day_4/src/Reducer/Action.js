@@ -1,4 +1,13 @@
+// Counter
+
 export const COUNTER_INCREMENT = 'COUNTER_INCREMENT';
 export const COUNTER_DECREMENT = 'COUNTER_DECREMENT';
 export const COUNTER_RESET = 'COUNTER_RESET';
 export const COUNTER_INCREMENT_BY_VALUE = 'COUNTER_INCREMENT_BY_VALUE';
+
+// Todo
+
+export const TODO_CREATE = 'TODO_CREATE';
+export const TODO_EDITS = 'TODO_EDITS';
+export const TODO_DELETE = 'TODO_DELETE';
+export const TODO_COMPLETED = 'TODO_COMPLETED';
