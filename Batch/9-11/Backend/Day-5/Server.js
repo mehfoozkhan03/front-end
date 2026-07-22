@@ -22,8 +22,7 @@ server.get('/', (req, res) => {
     res.send(data);
   });
 
-  /*
-  
+  /*  
   // this is promis wala tareeka 
   try {
     const data = await readFile('./note.json', { encoding: 'utf-8' });
@@ -55,7 +54,7 @@ server.post('/create', async (req, res) => {
   try {
     const data = await writeFile(
       './note.json',
-      JSON.stringify(req?.body, null, 3),
+      JSON.stringify(req?.body, null, 2),
     );
     res.send('data has been created....');
   } catch (error) {
