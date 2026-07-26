@@ -1,11 +1,16 @@
 import React from 'react';
+
 import { TodoContextScope } from '../Context/todoContext';
+import * as actionTypes from '../Reducer/Action';
 
 export const TodoInputs = () => {
-  const { todo, setTodo } = React.useContext(TodoContextScope);
+  const { state, dispatch } = React.useContext(TodoContextScope);
   const [text, setText] = React.useState('');
 
-  const handleAddTodo = () => {
+  /* 
+ @this is for context API methods not reducer logic involve
+ 
+ const handleAddTodo = () => {
     if (text.trim() === '') return;
 
     const todoData = {
@@ -20,7 +25,16 @@ export const TodoInputs = () => {
     });
     setText('');
   };
-  console.log(`🚀 ~ todo:`, todo);
+  console.log(`🚀 ~ todo:`, todo); */
+
+  // with reducer
+
+  const handleAddTodo = () => {
+    dispatch({ type: actionTypes.TODO_CREATE, payload: text });
+    setText('');
+  };
+
+  console.log(`🚀 ~ state:`, state);
 
   return (
     <div>

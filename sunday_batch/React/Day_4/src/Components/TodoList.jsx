@@ -1,11 +1,23 @@
 import React from 'react';
 import { TodoContextScope } from '../Context/todoContext';
 
+import * as actionTypes from '../Reducer/Action';
+
 export const TodoList = () => {
-  const { todo } = React.useContext(TodoContextScope);
+  const { state, dispatch } = React.useContext(TodoContextScope);
+
+  /*   const handleDelete = (id) => {
+    const deleteData = todo?.filter((el) => el.id !== id);
+    setTodo(deleteData);
+  }; */
+
+  const handleDelete = (id) => {
+    dispatch({ type: actionTypes.TODO_DELETE, payload: id });
+  };
+
   return (
     <>
-      {todo?.map((el) => {
+      {state.todo?.map((el) => {
         return (
           <div
             style={{
@@ -19,7 +31,7 @@ export const TodoList = () => {
             <input type="checkbox" />
             <h3>{el.text}</h3>
             <button>edit</button>
-            <button>delete</button>
+            <button onClick={() => handleDelete(el.id)}>delete</button>
           </div>
         );
       })}
