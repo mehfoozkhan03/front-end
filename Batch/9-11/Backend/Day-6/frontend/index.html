@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>handle error</h1>
+  </body>
+  <script>
+    const api = 'http://localhost:8000/';
+
+    fetch(api)
+      .then((res) => res.text())
+      .then((res) => console.log('data: ', res))
+      .catch((err) => console.log(err))
+      .finally(() => console.log('Done'));
+  </script>
+</html>
