@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import  TodoSlicer  from "./Slicer/Todoslicer.js";
+import TodoSlicer from "./Slicer/Todoslicer.js";
+
 
 export const store = configureStore({
-  reducer: TodoSlicer,
+  reducer: { todo: TodoSlicer},
 });

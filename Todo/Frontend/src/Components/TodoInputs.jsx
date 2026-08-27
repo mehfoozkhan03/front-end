@@ -11,7 +11,9 @@ const TodoInputs = () => {
 
   const addTask = () => {
     const text = inputData.current.value;
-    dispatch(createTodo(text));
+    dispatch(createTodo(text)).then(() => {
+      dispatch(fetchTodo());
+    });
   };
 
   return (

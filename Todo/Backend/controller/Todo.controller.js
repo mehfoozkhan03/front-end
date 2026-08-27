@@ -128,15 +128,15 @@ const todoDelete = async (req,res) => {
         }
             res.status(200).send({
             message: "Todo deleted successfully",
-            data: deletedTodo
+            data: deleteTodo
         });
        
     }
     catch (err) {
-        console.log(error);
+        console.log(err);
         res.status(500).send({
             message:"server error",
-            error: error.message
+            error: err.message
         })
     }
 }
