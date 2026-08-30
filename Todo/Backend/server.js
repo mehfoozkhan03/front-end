@@ -7,24 +7,27 @@ dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 const { connection } = require("./config/db");
 const { TodoRoutes } = require("./routes/Todo.routes");
+const { UserRoutes } = require("./routes/User.routes");
 
 const server = express();
 
 // Middleware
 server.use(express.json());
+
 server.use(cors({
     origin: "*",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-// Todo routes
-server.use("/todo", TodoRoutes);
-
 // Home route
 server.get("/", (req, res) => {
     res.send("Server is running");
 });
+
+// Todo routes...
+server.use("/todo", TodoRoutes);
+server.use("/user", UserRoutes);
 
 // Start server
 server.listen(process.env.PORT, async () => {
