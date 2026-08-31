@@ -1,16 +1,25 @@
 const express = require("express");
 
 const {
-    todoGet,
-    todoSet,
-    todoReplace,
-    todoUpdate,
-    todoDelete,
+  todoGet,
+  todoSet,
+  todoReplace,
+  todoUpdate,
+  todoDelete,
 } = require("../controller/Todo.controller");
+
+const { Auth } = require("../Auth/AuthMiddleware");
 
 const TodoRoutes = express.Router();
 
+/* 
+path :   todo/create
+
+*/
+
 TodoRoutes.get("/", todoGet);
+
+TodoRoutes.use(Auth);
 
 TodoRoutes.post("/create", todoSet);
 

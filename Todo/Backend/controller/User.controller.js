@@ -1,5 +1,6 @@
 const { User } = require("../model/user.model");
 require("dotenv").config({ path: ".env.production" });
+const jwt = require("jsonwebtoken");
 
 const bycrypt = require("bcrypt");
 
@@ -15,7 +16,11 @@ const login = async (req, res) => {
             res.send({ msg: "Error comparing passwords", error: err.message });
           } else {
             if (result) {
-              res.send({ msg: "Login successful", userData: user[0] });
+              // token generate
+              const token = jwt.sign({ id: "nxp" }, process.env.PrivateKey, {
+                expiresIn: "1h",
+              });
+              res.send({ msg: "Login successful", userData: user[0], token });
             } else {
               res.send({ msg: "Invalid credentials" });
             }
