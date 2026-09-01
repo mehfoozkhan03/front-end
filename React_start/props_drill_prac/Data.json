@@ -1,0 +1,124 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "img": "https://randomuser.me/api/portraits/men/75.jpg",
+      "techStack": [
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/react.svg",
+          "name": "React"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/nodedotjs.svg",
+          "name": "Node.js"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/express.svg",
+          "name": "Express"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/mongodb.svg",
+          "name": "MongoDB"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "img": "https://randomuser.me/api/portraits/women/44.jpg",
+      "techStack": [
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/react.svg",
+          "name": "React"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/nodedotjs.svg",
+          "name": "Node.js"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/express.svg",
+          "name": "Express"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/mongodb.svg",
+          "name": "MongoDB"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "img": "https://randomuser.me/api/portraits/women/65.jpg",
+      "techStack": [
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/react.svg",
+          "name": "React"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/nodedotjs.svg",
+          "name": "Node.js"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/express.svg",
+          "name": "Express"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/mongodb.svg",
+          "name": "MongoDB"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Bob Brown",
+      "email": "bob.brown@example.com",
+      "img": "https://randomuser.me/api/portraits/men/32.jpg",
+      "techStack": [
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/react.svg",
+          "name": "React"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/nodedotjs.svg",
+          "name": "Node.js"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/express.svg",
+          "name": "Express"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/mongodb.svg",
+          "name": "MongoDB"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Charlie Davis",
+      "email": "charlie.davis@example.com",
+      "img": "https://randomuser.me/api/portraits/men/52.jpg",
+      "techStack": [
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/react.svg",
+          "name": "React"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/nodedotjs.svg",
+          "name": "Node.js"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/express.svg",
+          "name": "Express"
+        },
+        {
+          "img": "https://cdn.jsdelivr.net/npm/simple-icons@16/icons/mongodb.svg",
+          "name": "MongoDB"
+        }
+      ]
+    }
+  ]
+}
