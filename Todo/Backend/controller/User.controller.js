@@ -17,7 +17,7 @@ const login = async (req, res) => {
           } else {
             if (result) {
               // token generate
-              const token = jwt.sign({ id: "nxp" }, process.env.PrivateKey, {
+              const token = jwt.sign({ userId: user[0]._id }, process.env.PrivateKey, {
                 expiresIn: "1h",
               });
               res.send({ msg: "Login successful", userData: user[0], token });

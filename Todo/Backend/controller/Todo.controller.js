@@ -1,5 +1,6 @@
 const { TodoModel } = require("../model/todo.model");
 
+const {User} =require("../model/user.model");
 
 // GET
 const todoGet = async (req, res) => {
@@ -118,8 +119,18 @@ const todoReplace = async (req, res) => {
 const todoDelete = async (req,res) => {
     try {
         const {id} = req.params;
+    
+        const userCheck = await User.findById(req.body?.userData?.userId);
+        console.log("userCheck",userCheck);
+
+        if(!userCheck){
+            return res.status(404).send({
+                message: "UnAuthorized user"
+            });
+        }
 
         const deleteTodo = await TodoModel.findByIdAndDelete(id);
+        console.log(deleteTodo);
 
         if(!deleteTodo) {
             return res.status(404).send({

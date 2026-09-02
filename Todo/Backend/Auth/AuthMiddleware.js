@@ -5,19 +5,28 @@ require("dotenv").config({
 });
 
 const Auth = (req, res, next) => {
-  const token = req.headers.token?.split(" ")[1];
-  console.log("token",typeof token);
-  if (!token) {
-    res.send({ msg: "Please login first" });
-  }
-
-  jwt.verify(token, process.env.PrivateKey, (err, decode) => {
-    if (err) {
-      res.send({msg:"something went wrong in token verification..."});
+  try {
+    console.log("req.header", req.headers);
+    if (!req.headers.token) {
+      res.send({ msg: "Please login first" });
+      return;
     }
-    console.log(decode)
-    next();
-  });
+
+    const token = req.headers.token?.split(" ")[1];
+    console.log("token", token);
+
+    jwt.verify(token, process.env.PrivateKey, (err, decode) => {
+      if (err) {
+        res.send({ msg: "something went wrong in token verification..." });
+        return;
+      }
+      console.log("decode data",decode);  
+      req.body.userData=decode;
+      next();
+    });
+  } catch (err) {
+    res.send({ msg: "something went wrong..." });
+  }
 };
 
 module.exports = { Auth };
