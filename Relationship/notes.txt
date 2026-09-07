@@ -1,0 +1,27 @@
+- user 
+    - user_id
+    - name
+    - email
+    - password
+
+- instructor [teacher]
+    - inst_id
+    - exprience
+    - tech stack
+    - role/designation
+    - std_batch 
+
+
+- student
+    - std_id
+    - course
+    - fees
+    - result
+
+
+
+    eg: -
+
+        1. user [independent]  ||  (instructor && student) [dependent] -> reletionship{ 1 to 1}
+        2. post [independent]  || (comment) [dependent] -> reletionship{1 to many}
+        
