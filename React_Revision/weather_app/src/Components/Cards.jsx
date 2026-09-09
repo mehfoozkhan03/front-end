@@ -1,6 +1,6 @@
 export const Cards = ({ value }) => {
   return (
-    <div className="mx-10 mt-2  border rounded-lg p-3">
+    <div className="card">
       <h2>{value?.name}</h2>
 
       <p>Temperature: {value?.main.temp}</p>
