@@ -2,21 +2,23 @@
 import * as actions from "../Action/Action";
 
 
-export const Other_Reducer = (state, action) => {
-    console.log("🚀 ~ Other_Reducer ~ state:", state)
-    console.log("🚀 ~ Other_Reducer ~ action:", action)
-
+export const Other_Reducer = (state = { count: 100 }, action) => {
+    console.log("action,state:other_reducer", action, state)
     switch (action.type) {
-        case actions.Increments:
+
+        // case '@@redux/REPLACEo.b.c.0.i.r':
+        //     state = { count: 100 }
+
+        case actions.otherInc.type:
             return { count: state.count + 1 };
 
-        case actions.Decrements:
+        case actions.otherDec.type:
             return { count: state.count - 1 };
 
-        case actions.Reset:
+        case actions.otherRes.type:
             return { count: 0 };
 
-        case actions.otherDouble: {
+        case actions.otherDouble.type: {
             console.log("double", state.count * 2)
             return { count: state.count * 2 };
         }

@@ -6,17 +6,17 @@ import { Reducer } from '../Reducer/Reducer';
 import { Other_Reducer } from '../Reducer/OtherReducer';
 
 
-
-export const myStore = legacy_createStore(Reducer, { count: 5 });
+export const myStore = legacy_createStore(Reducer);
 
 
 setTimeout(() => {
-    myStore.replaceReducer(Other_Reducer, { count: 10 });
+    console.log("replace reducer")
+    myStore.replaceReducer(Other_Reducer);
 
     myStore.dispatch(actions.otherDouble);
 
     const value = myStore.getState();
-    console.log("🚀 ~ value:", value)
+    console.log("🚀 ~ value:", value);
 }, 3000)
 
 

@@ -24,6 +24,5 @@ export const decrementByValue = (value) => {
 export const otherInc = { type: 'OTHER_REDUCER_INCREMENT' };
 export const otherDec = { type: 'OTHER_REDUCER_DECREMENT' };
 export const otherRes = { type: 'OTHER_REDUCER_RESET' };
-
-export const otherDouble = { type: 'OTHER_REDUCER_DOUBLE' };// ✔
+export const otherDouble = { type: 'OTHER_REDUCER_DOUBLE' };
 
